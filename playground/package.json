@@ -1,0 +1,24 @@
+{
+  "name": "playground",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build:cjs-esm": "tsdown --dts --minify --format cjs,esm ./src/index.ts",
+    "dev:cjs-esm": "tsdown --dts --watch --format cjs,esm ./src/index.ts",
+    "build:esm": "tsdown --dts --minify --format esm ./src/index.ts",
+    "dev:esm": "tsdown --dts --watch --format esm ./src/index.ts",
+    "build:cjs": "tsdown --dts --minify --format cjs ./src/index.ts",
+    "dev:cjs": "tsdown --dts --watch --format cjs ./src/index.ts",
+    "build:cjs-esm:error": "tsdown --dts --minify --format cjs,esm ./src/error.ts",
+    "dev:cjs-esm:error": "tsdown --dts --watch --format cjs,esm ./src/error.ts",
+    "build:esm:error": "tsdown --dts --minify --format esm ./src/error.ts",
+    "dev:esm:error": "tsdown --dts --watch --format esm ./src/error.ts",
+    "build:cjs:error": "tsdown --dts --minify --format cjs ./src/error.ts",
+    "dev:cjs:error": "tsdown --dts --watch --format cjs ./src/error.ts"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:"
+  }
+}

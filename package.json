@@ -1,0 +1,131 @@
+{
+  "name": "tsdown-problem-matchers",
+  "displayName": "tsdown Problem Matchers",
+  "version": "1.0.7",
+  "description": "Problem matchers for tsdown tasks",
+  "author": {
+    "name": "Ken Snyder",
+    "email": "ken@ken.net",
+    "url": "https://ken.net"
+  },
+  "publisher": "yankeeinlondon",
+  "packageManager": "pnpm@10.11.0",
+  "license": "MIT",
+  "homepage": "https://github.com/yankeeinlondon/tsdown-problem-matchers",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yankeeinlondon/tsdown-problem-matchers"
+  },
+  "bugs": {
+    "url": "https://github.com/yankeeinlondon/tsdown-problem-matchers/issues"
+  },
+  "keywords": [
+    "tsdown",
+    "typescript",
+    "problem matcher",
+    "problem matchers",
+    "tasks"
+  ],
+  "icon": "media/icon.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "contributes": {
+    "problemMatchers": [
+      {
+        "name": "tsdown",
+        "label": "tsdown problems with --format esm,cjs",
+        "owner": "tsdown",
+        "source": "tsdown",
+        "severity": "error",
+        "pattern": [
+          {
+            "regexp": "^✘\\s+\\[ERROR\\]\\s+(.+)$",
+            "message": 1
+          },
+          {
+            "regexp": "^\\s*$"
+          },
+          {
+            "regexp": "^\\s+(.+):(\\d+):(\\d+):$",
+            "file": 1,
+            "line": 2,
+            "column": 3
+          }
+        ],
+        "applyTo": "closedDocuments"
+      },
+      {
+        "base": "$tsdown",
+        "name": "tsdown-watch",
+        "label": "tsdown problems with --format esm,cjs --watch",
+        "background": {
+          "beginsPattern": "^ESM|^CJS Build start$",
+          "endsPattern": "^ESM|^CJS .* Build success|^ESM|^CJS Build failed"
+        }
+      },
+      {
+        "base": "$tsdown",
+        "name": "tsdown-esm",
+        "label": "tsdown problems with --format esm",
+        "background": {
+          "beginsPattern": "^ESM Build start$",
+          "endsPattern": "^ESM .* Build success|^ESM Build failed"
+        }
+      },
+      {
+        "base": "$tsdown",
+        "name": "tsdown-esm-watch",
+        "label": "tsdown problems with --format esm --watch",
+        "background": {
+          "beginsPattern": "^ESM Build start$",
+          "endsPattern": "^ESM .* Build success|^ESM Build failed"
+        }
+      },
+      {
+        "base": "$tsdown",
+        "name": "tsdown-cjs",
+        "label": "tsdown problems with --format cjs",
+        "background": {
+          "beginsPattern": "^CJS Build start$",
+          "endsPattern": "^CJS .* Build success|^CJS Build failed"
+        }
+      },
+      {
+        "base": "$tsdown",
+        "name": "tsdown-cjs-watch",
+        "label": "tsdown problems with --format cjs --watch",
+        "background": {
+          "beginsPattern": "^CJS Build start$",
+          "endsPattern": "^CJS .* Build success|^CJS Build failed"
+        }
+      },
+      {
+        "base": "$tsc",
+        "name": "tsdown-dts",
+        "label": "tsdown problems with --dts"
+      },
+      {
+        "base": "$tsdown-dts",
+        "name": "tsdown-dts-watch",
+        "label": "tsdown problems with --dts --watch",
+        "background": {
+          "beginsPattern": "^DTS Build start$",
+          "endsPattern": "^DTS .* Build success|^DTS Build failed"
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "package": "pnpm vsce package --no-dependencies",
+    "release": "pnpm vsce publish --no-dependencies",
+    "lint": "biome lint",
+    "lint:fix": "biome lint --write",
+    "format": "biome format",
+    "format:fix": "biome format --write"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "catalog:",
+    "@vscode/vsce": "catalog:"
+  }
+}
