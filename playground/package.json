@@ -17,8 +17,8 @@
     "dev:cjs:error": "tsdown --dts --watch --format cjs ./src/error.ts"
   },
   "devDependencies": {
-    "@types/node": "catalog:",
-    "tsdown": "catalog:",
-    "typescript": "catalog:"
+    "@types/node": "^22.15.29",
+    "tsdown": "^0.12.5",
+    "typescript": "^5.8.3"
   }
 }

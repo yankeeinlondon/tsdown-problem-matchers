@@ -118,14 +118,25 @@
   },
   "scripts": {
     "package": "pnpm vsce package --no-dependencies",
-    "release": "pnpm vsce publish --no-dependencies",
+    "release": "bumpp",
     "lint": "biome lint",
     "lint:fix": "biome lint --write",
     "format": "biome format",
     "format:fix": "biome format --write"
   },
   "devDependencies": {
-    "@biomejs/biome": "catalog:",
-    "@vscode/vsce": "catalog:"
+    "@antfu/eslint-config": "^4.13.2",
+    "@type-challenges/utils": "^0.1.1",
+    "@types/node": "^22.15.29",
+    "@vscode/vsce": "^3.4.2",
+    "bumpp": "^10.1.1",
+    "eslint": "^9.28.0",
+    "eslint-plugin-format": "^1.0.1",
+    "husky": "^9.1.7",
+    "jiti": "^2.4.2",
+    "npm-run-all": "^4.1.5",
+    "tsdown": "^0.12.5",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.4"
   }
 }
